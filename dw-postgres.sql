@@ -1,0 +1,27 @@
+CREATE TABLE logs (
+  id SERIAL,
+  chan VARCHAR(15),
+  utime INTEGER UNIQUE,
+  isotime DATE,
+  source VARCHAR(15),
+  heard VARCHAR(15),
+  level VARCHAR(15),
+  error VARCHAR(15),
+  dti VARCHAR(10),
+  name VARCHAR(15),
+  symbol VARCHAR(10),
+  latitude VARCHAR(50),
+  longitude VARCHAR(50),
+  speed VARCHAR(15),
+  course VARCHAR(15),
+  altitude VARCHAR(15),
+  frequency VARCHAR(50),
+  coffset VARCHAR(50),
+  tone VARCHAR(50),
+  system VARCHAR(120),
+  status VARCHAR(50),
+  telemetry TEXT,
+  comment TEXT,
+  PRIMARY KEY (id)
+);
+CREATE INDEX on logs (utime,name,heard);
