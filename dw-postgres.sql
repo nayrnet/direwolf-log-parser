@@ -1,4 +1,4 @@
-CREATE TABLE logs2 (
+CREATE TABLE logs (
   id SERIAL,
   chan VARCHAR(15),
   utime INTEGER,
@@ -25,4 +25,4 @@ CREATE TABLE logs2 (
   PRIMARY KEY (id),
   UNIQUE (utime, name, heard, level, dti, speed, course, comment, telemetry)
 );
-CREATE INDEX on logs2 (utime,name,heard);
+CREATE INDEX on logs (utime,name,heard);
