@@ -17,7 +17,7 @@ const fst = require('fs-tail-stream');
 const csv = require('csv-parser')
 
 // Direwolf Log Config
-const log = "direwolf.log"
+const log = "/var/log/direwolf/direwolf.log"
 const query = "INSERT INTO logs (chan,utime,isotime,source,heard,level,error,dti,name,symbol,latitude,longitude,speed,course,altitude,frequency,coffset,tone,system,status,telemetry,comment) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22)"
 const headers = ["chan", "utime", "isotime", "source", "heard", "level", "error", "dti", "name", "symbol", "latitude", "longitude", "speed", "course", "altitude", "frequency", "coffset", "tone", "system", "status", "telemetry", "comment"]
 
@@ -33,12 +33,13 @@ pool.connect().then(client => {
     })
     .pipe(csv(headers))
     .on('data', (data) => {
-      client.query(query, [data.chan, data.utime, data.isotime, data.source, data.heard, data.level, data.error, data.dti, data.name, data.symbol, data.latitude, data.longitude, data.speed, data.course, data.altitude, data.frequency, data.offset, data.tone, data.system, data.status, data.telemetry, data.comment], (err, res) => {
+      client.query(query, [data.chan, data.utime, data.isotime, data.source, data.heard, data.level, data.error, data.dti, data.name, data.symbol, Number(data.latitude), Number(data.longitude), Number(data.speed), Number(data.course), Number(data.altitude), Number(data.frequency), Number(data.offset), data.tone, data.system, data.status, data.telemetry, data.comment], (err, res) => {
         if (err) {
-          console.log('[SQL ERROR]: ', err)
+	  if (err['routine'] == '_bt_check_unique') { process.stdout.write("*") } else { console.log('[SQL ERROR]: ', err) }
+        } else {
+          process.stdout.write("^");
         }
       })
-      process.stdout.write(".");
     })
     .on('end', () => {});
 
@@ -47,5 +48,4 @@ pool.connect().then(client => {
     done();
   };
 });
-clear
 
