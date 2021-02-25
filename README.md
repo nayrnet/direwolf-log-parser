@@ -9,7 +9,8 @@ Work in progress, I'm still proving this in my environment before cleanup.. more
  * PGPASSWORD
 
 ## Install
-```git clone https://github.com/nayrnet/direwolf-log-parser.git
+```
+git clone https://github.com/nayrnet/direwolf-log-parser.git
 apt install npm
 npm install pg
 npm install fs-tail-stream
