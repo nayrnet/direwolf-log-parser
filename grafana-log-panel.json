@@ -1,0 +1,446 @@
+{
+  "datasource": "direwolf-sql",
+  "description": "",
+  "fieldConfig": {
+    "defaults": {
+      "custom": {
+        "align": "center",
+        "filterable": false,
+        "displayMode": "color-text",
+        "width": 150
+      },
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "color": "green",
+            "value": null
+          }
+        ]
+      },
+      "mappings": [],
+      "color": {
+        "mode": "palette-classic"
+      }
+    },
+    "overrides": [
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "Time"
+        },
+        "properties": [
+          {
+            "id": "displayName",
+            "value": "time"
+          },
+          {
+            "id": "unit",
+            "value": "time: YYYY-MM-DD HH:mm:ss"
+          },
+          {
+            "id": "custom.align",
+            "value": null
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": ""
+        },
+        "properties": [
+          {
+            "id": "unit",
+            "value": "short"
+          },
+          {
+            "id": "decimals",
+            "value": 2
+          },
+          {
+            "id": "custom.align",
+            "value": null
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byRegexp",
+          "options": "/.*name/"
+        },
+        "properties": [
+          {
+            "id": "unit",
+            "value": "short"
+          },
+          {
+            "id": "decimals",
+            "value": 2
+          },
+          {
+            "id": "links",
+            "value": [
+              {
+                "targetBlank": true,
+                "title": "Lookup ${__data.fields[1]} on APRS.fi",
+                "url": "https://aprs.fi/info/a/${__data.fields[1]}"
+              }
+            ]
+          },
+          {
+            "id": "custom.align",
+            "value": null
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "name"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 90
+          },
+          {
+            "id": "displayName",
+            "value": "callsign"
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "longitude"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 105
+          },
+          {
+            "id": "decimals",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "latitude"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 97
+          },
+          {
+            "id": "decimals",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "altitude"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 76
+          },
+          {
+            "id": "unit",
+            "value": "lengthm"
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "course"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 70
+          },
+          {
+            "id": "unit",
+            "value": "degree"
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "speed"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 83
+          },
+          {
+            "id": "unit",
+            "value": "velocitykmh"
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "heard"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 114
+          },
+          {
+            "id": "links",
+            "value": [
+              {
+                "targetBlank": true,
+                "title": "Lookup ${__data.fields[4]} on APRS.fi",
+                "url": "https://aprs.fi/info/a/${__data.fields[4]}"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "frequency"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 107
+          },
+          {
+            "id": "unit",
+            "value": "string"
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "tone"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 59
+          },
+          {
+            "id": "unit",
+            "value": "string"
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "offset"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 62
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "audio level"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 118
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "ecc"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 45
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "system"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 224
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "comment"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 397
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "time"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 163
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "symbol"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 7
+          },
+          {
+            "id": "mappings",
+            "value": []
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "status"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 70
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "error"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 54
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "dti"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 21
+          }
+        ]
+      },
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "level"
+        },
+        "properties": [
+          {
+            "id": "custom.width",
+            "value": 98
+          }
+        ]
+      }
+    ]
+  },
+  "gridPos": {
+    "h": 28,
+    "w": 24,
+    "x": 0,
+    "y": 32
+  },
+  "id": 42,
+  "links": [],
+  "options": {
+    "showHeader": true,
+    "sortBy": [
+      {
+        "displayName": "time",
+        "desc": true
+      }
+    ]
+  },
+  "pluginVersion": "7.4.3",
+  "targets": [
+    {
+      "format": "table",
+      "group": [],
+      "metricColumn": "name",
+      "rawQuery": true,
+      "rawSql": "SELECT\n  utime AS \"time\",\n  name,\n  status,\n  symbol,\n  heard,\n  level AS audio,\n  error AS ecc,\n  dti,\n  latitude,\n  longitude,\n  altitude,\n  speed,\n  course,\n  frequency,\n  coffset AS offset,\n  tone,\n  system,\n  comment,\n  telemetry\nFROM logs\nWHERE\n  $__unixEpochFilter(utime)     \nORDER BY 1,2",
+      "refId": "A",
+      "select": [
+        [
+          {
+            "params": [
+              "name"
+            ],
+            "type": "column"
+          }
+        ]
+      ],
+      "table": "logs",
+      "timeColumn": "utime",
+      "timeColumnType": "int4",
+      "where": [
+        {
+          "name": "$__unixEpochFilter",
+          "params": [],
+          "type": "macro"
+        }
+      ]
+    }
+  ],
+  "timeFrom": null,
+  "timeShift": null,
+  "title": "APRS Station Log",
+  "transformations": [
+    {
+      "id": "merge",
+      "options": {
+        "reducers": []
+      }
+    }
+  ],
+  "transparent": true,
+  "type": "table"
+}
