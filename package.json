@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "direwolf csv to postgresql",
   "main": "dw-log-parser.js",
+  "dependencies": {
+    "pg": "^8.5.1",
+    "fs-tail-stream": "^1.1.0",
+    "csv-parser": "^3.0.0",
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

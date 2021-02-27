@@ -33,9 +33,13 @@ pool.connect().then(client => {
     })
     .pipe(csv(headers))
     .on('data', (data) => {
-      client.query(query, [data.chan, data.utime, data.isotime, data.source, data.heard, data.level, data.error, data.dti, data.name, data.symbol, Number(data.latitude), Number(data.longitude), Number(data.speed), Number(data.course), Number(data.altitude), Number(data.frequency), Number(data.offset), data.tone, data.system, data.status, data.telemetry, data.comment], (err, res) => {
+      client.query(query, [data.chan, data.utime, data.isotime, data.source, data.heard, data.level, data.error, data.dti, data.name, data.symbol, Number(data.latitude), Number(data.longitude), Number(data.speed), Number(data.course), Number(data.altitude), Number(data.frequency), Number(data.offset), Number(data.tone), data.system, data.status, data.telemetry, data.comment], (err, res) => {
         if (err) {
-	  if (err['routine'] == '_bt_check_unique') { process.stdout.write("*") } else { console.log('[SQL ERROR]: ', err) }
+	  if (err['routine'] == '_bt_check_unique') { process.stdout.write("*") }
+	  else if (err['routine'] == 'PreventCommandIfReadOnly') {
+		console.log('[SQL ERROR]: Database Read Only!') // TODO Recover from this gracefully.
+		done();
+	  } else { console.log('[SQL ERROR]: ', err) }
         } else {
           process.stdout.write("^");
         }
